@@ -1,3 +1,4 @@
 <template>
   <Searcher />
+  <Table />
 </template>
