@@ -4,7 +4,7 @@
       size="large"
       class="w-12 m-0"
       v-for="menuItem in menuItems"
-      :type="menuItem.selected ? 'primary' : 'default'"
+      :color="menuItem.selected ? '#E7E7E7' : '#fff'"
     >
       <component :is="menuItem.icon" class="w-6" />
     </el-button>

@@ -3,7 +3,7 @@
     <div class="common-layout">
       <el-container class="min-h-screen">
         <el-aside width="auto" class="border-r-[1px] border-r-gray-300 p-4">
-          <SideMenu />
+          <SideBar />
         </el-aside>
         <el-container>
           <el-header height="auto"><Header title="Installations" /></el-header>
