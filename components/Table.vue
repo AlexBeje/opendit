@@ -1,9 +1,14 @@
 <template>
-  <el-button v-if="pending" disabled class="sm: mt-4">Loading ...</el-button>
-  <el-button v-else @click="loadTenMoreItems" class="sm: mt-4">Load more</el-button>
-  <ul class="mt-4 p-4 border-gray-300 border-[1px]">
-    <li v-for="product in data?.products">{{ product.title }}</li>
-  </ul>
+  <div v-infinite-scroll="loadTenMoreItems" class="mt-4">
+    <el-table :data="data?.products" style="width: 100%">
+      <el-table-column prop="stock" label="Stock" />
+      <el-table-column prop="title" label="Title" />
+      <el-table-column prop="brand" label="Brand" />
+      <el-table-column prop="category" label="Category" />
+      <el-table-column prop="price" label="Price" />
+      <el-table-column prop="rating" label="Rating" />
+    </el-table>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -18,7 +23,7 @@ interface Product {
 
 // Fetch data
 const page = ref(10);
-const { pending, refresh, error, data } = await useFetch<{
+const { refresh, error, data } = await useFetch<{
   products: Product[];
 }>(() => `https://dummyjson.com/products?limit=${page.value}`);
 
