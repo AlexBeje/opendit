@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full sm:max-w-sm flex gap-6 ml-auto">
+  <div class="w-full sm:w-[200px]">
     <el-input
       placeholder="Search"
       :prefix-icon="Search"
@@ -7,14 +7,11 @@
       @input="$emit('update:filter', filter)"
       ref="input"
     />
-    <el-button type="primary" color="#000" round>
-      Add New<el-icon class="el-icon--right"><Plus /></el-icon>
-    </el-button>
   </div>
 </template>
 
 <script setup lang="ts">
-import { Plus, Search } from '@element-plus/icons-vue';
+import { Search } from '@element-plus/icons-vue';
 
 /**
  * Variables

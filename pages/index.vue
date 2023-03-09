@@ -1,5 +1,8 @@
 <template>
-  <Searcher @update:filter="(newValue) => (filter = newValue)" />
+  <div class="flex gap-4 justify-end">
+    <Searcher @update:filter="(newValue) => (filter = newValue)" />
+    <AddNew />
+  </div>
   <Table :filter="filter" />
 </template>
 
