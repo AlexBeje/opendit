@@ -14,6 +14,10 @@
 <script setup lang="ts">
 import { HomeFilled, UserFilled } from '@element-plus/icons-vue';
 
+/**
+ * Variables
+ * ---------
+ */
 const menuItems = [
   {
     icon: HomeFilled,

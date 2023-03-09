@@ -5,6 +5,10 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * Props
+ * -----
+ */
 interface HeaderProps {
   title: string;
 }

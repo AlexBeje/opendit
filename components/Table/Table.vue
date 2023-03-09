@@ -1,6 +1,6 @@
 <template>
   <div v-infinite-scroll="loadTenMoreItems" class="mt-4">
-    <el-table :data="data?.products" style="width: 100%">
+    <el-table ref="tableRef" :data="tableData" style="width: 100%">
       <el-table-column prop="stock" label="Stock" width="80">
         <template #default="scope">
           <ShoppingCart
@@ -27,10 +27,43 @@
 import { Product } from './Table.type';
 import { ShoppingCart } from '@element-plus/icons-vue';
 
+/**
+ * Props
+ * -----
+ */
+interface TableProps {
+  filter: string | undefined;
+}
+const props = defineProps<TableProps>();
+const { filter } = toRefs(props);
+
+/**
+ * Variables
+ * ---------
+ */
+// const filter = ref<string>();
 const page = ref(10);
 const { refresh, error, data } = await useFetch<{
   products: Product[];
 }>(() => `https://dummyjson.com/products?limit=${page.value}`);
+
+/**
+ * Computed Props
+ * --------------
+ */
+const tableData = computed(() => {
+  if (filter.value) {
+    return data.value?.products.filter((product) =>
+      product.title.toUpperCase().includes(filter.value?.toUpperCase() || '')
+    );
+  }
+  return data.value?.products;
+});
+
+/**
+ * Methods
+ * -------
+ */
 
 /**
  * Fetch the next 10 items of the dummyjson product list
