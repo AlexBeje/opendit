@@ -32,7 +32,7 @@ import { ShoppingCart } from '@element-plus/icons-vue';
  * -----
  */
 interface TableProps {
-  filter: string | undefined;
+  filter: string | null;
 }
 const props = defineProps<TableProps>();
 const { filter } = toRefs(props);
