@@ -6,11 +6,9 @@
           <SideBar />
         </el-aside>
         <el-container class="flex max-h-[100vh]">
-          <el-header height="auto" class="flex-1"
-            ><Header title="Installations"
-          /></el-header>
-          <el-main class="flex-1"><NuxtPage /></el-main>
-          <el-footer height="auto" class="flex-1"><Footer /></el-footer>
+          <el-header height="auto"><Header title="Installations" /></el-header>
+          <el-main><NuxtPage /></el-main>
+          <el-footer height="auto"><Footer /></el-footer>
         </el-container>
       </el-container>
     </div>
