@@ -11,5 +11,5 @@
  * Variables
  * ---------
  */
-const filter = ref<string>();
+const filter = ref<string | null>(null);
 </script>
