@@ -1,5 +1,5 @@
 <template>
-  <div v-infinite-scroll="loadTenMoreItems" class="mt-4">
+  <div v-infinite-scroll="loadTenMoreItems" class="mt-4 h-[95%] overflow-auto">
     <el-table ref="tableRef" :data="tableData" style="width: 100%">
       <el-table-column prop="stock" label="Stock" width="80">
         <template #default="scope">
