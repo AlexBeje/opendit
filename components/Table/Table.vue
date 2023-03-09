@@ -4,7 +4,7 @@
       <el-table-column prop="stock" label="Stock" width="80">
         <template #default="scope">
           <ShoppingCart
-            :class="`m-auto p-1 rounded-full w-6 
+            :class="`p-1 rounded-full w-6 
               ${setStockColor(scope.row.stock)}`"
             color="black"
           />
