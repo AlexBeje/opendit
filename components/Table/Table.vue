@@ -1,7 +1,7 @@
 <template>
   <div v-infinite-scroll="loadTenMoreItems" class="mt-4 h-[95%] overflow-auto">
     <el-table ref="tableRef" :data="tableData" style="width: 100%">
-      <el-table-column prop="stock" label="Stock" width="80">
+      <el-table-column prop="stock" label="Stock" width="90" sortable>
         <template #default="scope">
           <ShoppingCart
             :class="`p-1 rounded-full w-6 
@@ -10,11 +10,11 @@
           />
         </template>
       </el-table-column>
-      <el-table-column prop="title" label="Title" />
-      <el-table-column prop="brand" label="Brand" />
-      <el-table-column prop="category" label="Category" />
-      <el-table-column prop="price" label="Price" />
-      <el-table-column prop="rating" label="Rating">
+      <el-table-column prop="title" label="Title" sortable/>
+      <el-table-column prop="brand" label="Brand" sortable/>
+      <el-table-column prop="category" label="Category" sortable/>
+      <el-table-column prop="price" label="Price" sortable/>
+      <el-table-column prop="rating" label="Rating" sortable>
         <template #default="scope">
           {{ getRatingPercentage(scope.row.rating) }}%
         </template>
