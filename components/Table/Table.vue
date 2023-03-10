@@ -19,7 +19,7 @@
       <el-table-column prop="category" label="Category" sortable />
       <el-table-column prop="price" label="Price" sortable>
         <template #default="props">
-          {{ props.row.price }} €
+          {{ (props.row.price).toFixed(2) }} €
         </template>
       </el-table-column>
       <el-table-column prop="rating" label="Rating" sortable>
