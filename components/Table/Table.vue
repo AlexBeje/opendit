@@ -17,7 +17,11 @@
       <el-table-column prop="title" label="Title" sortable />
       <el-table-column prop="brand" label="Brand" sortable />
       <el-table-column prop="category" label="Category" sortable />
-      <el-table-column prop="price" label="Price" sortable />
+      <el-table-column prop="price" label="Price" sortable>
+        <template #default="props">
+          {{ getRatingPercentage(props.row.price) }} €
+        </template>
+      </el-table-column>
       <el-table-column prop="rating" label="Rating" sortable>
         <template #default="props">
           {{ getRatingPercentage(props.row.rating) }}%
