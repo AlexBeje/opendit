@@ -1,5 +1,9 @@
 <template>
-  <div v-infinite-scroll="loadTenMoreItems" class="mt-4 h-[95%] overflow-auto">
+  <div
+    v-infinite-scroll="loadTenMoreItems"
+    class="mt-4 h-[95%] overflow-auto"
+    ref="scrollableElement"
+  >
     <el-table ref="tableRef" :data="tableData" style="width: 100%">
       <el-table-column prop="stock" label="Stock" width="90" sortable>
         <template #default="scope">
@@ -10,10 +14,10 @@
           />
         </template>
       </el-table-column>
-      <el-table-column prop="title" label="Title" sortable/>
-      <el-table-column prop="brand" label="Brand" sortable/>
-      <el-table-column prop="category" label="Category" sortable/>
-      <el-table-column prop="price" label="Price" sortable/>
+      <el-table-column prop="title" label="Title" sortable />
+      <el-table-column prop="brand" label="Brand" sortable />
+      <el-table-column prop="category" label="Category" sortable />
+      <el-table-column prop="price" label="Price" sortable />
       <el-table-column prop="rating" label="Rating" sortable>
         <template #default="scope">
           {{ getRatingPercentage(scope.row.rating) }}%
@@ -36,6 +40,7 @@ interface TableProps {
 }
 const props = defineProps<TableProps>();
 const { filter } = toRefs(props);
+const scrollableElement = ref();
 
 /**
  * Variables
@@ -73,6 +78,7 @@ const loadTenMoreItems = () => {
     return;
   }
   page.value += 10;
+  scrollableElement.value.scrollBy(0, -1);
   refresh();
 };
 
