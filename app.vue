@@ -7,7 +7,10 @@
         </el-aside>
         <el-container class="flex max-h-[100vh]">
           <el-header height="auto"><Header title="Installations" /></el-header>
-          <el-main style="overflow: hidden"><NuxtPage /></el-main>
+          <el-main
+            style="overflow: hidden; display: flex; flex-direction: column"
+            ><NuxtPage
+          /></el-main>
           <el-footer height="auto"><Footer /></el-footer>
         </el-container>
       </el-container>

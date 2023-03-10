@@ -1,15 +1,15 @@
 <template>
   <div
     v-infinite-scroll="loadTenMoreItems"
-    class="mt-4 h-[95%] overflow-auto"
+    class="mt-4 h-full overflow-auto"
     ref="scrollableElement"
   >
-    <el-table ref="tableRef" :data="tableData" style="width: 100%">
+    <el-table ref="tableRef" :data="tableData">
       <el-table-column prop="stock" label="Stock" width="90" sortable>
-        <template #default="scope">
+        <template #default="props">
           <ShoppingCart
-            :class="`p-1 rounded-full w-6 
-              ${setStockColor(scope.row.stock)}`"
+            :class="`m-auto p-1 rounded-full w-6 
+              ${setStockColor(props.row.stock)}`"
             color="black"
           />
         </template>
@@ -19,8 +19,8 @@
       <el-table-column prop="category" label="Category" sortable />
       <el-table-column prop="price" label="Price" sortable />
       <el-table-column prop="rating" label="Rating" sortable>
-        <template #default="scope">
-          {{ getRatingPercentage(scope.row.rating) }}%
+        <template #default="props">
+          {{ getRatingPercentage(props.row.rating) }}%
         </template>
       </el-table-column>
     </el-table>
